@@ -9,7 +9,8 @@
     - Membuat app baru pada Adaptable dengan source repository githun
     - Melakukan deployment pada aplikasi
 
-2. 
+2. https://drive.google.com/file/d/1aXTz4yOdmWjAkeHlNiDgfalEQc105M9I/view?usp=drive_link
+link bagan
 
 3. Dengan adanya virtual environment makan terdapat beberapa manfaat bagi pemrogram, yaitu :
     1. Mengisolasi lingkungan direktori, dengan kata lain membantu menghindari konflik dan memastikan kestabilan dari proyek

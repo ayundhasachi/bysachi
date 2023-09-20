@@ -1,6 +1,10 @@
 from django.db import models
 
-class Item(models.Model):
+# Create your models here.
+from django.db import models
+
+class Product(models.Model):
     name = models.CharField(max_length=255)
-    amount = models.IntegerField()
+    date_added = models.DateField(auto_now_add=True)
+    price = models.IntegerField()
     description = models.TextField()

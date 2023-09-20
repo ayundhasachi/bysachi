@@ -4,20 +4,20 @@ from main.forms import ProductForm
 from django.urls import reverse
 from django.http import HttpResponse
 from django.core import serializers
+
 from main.models import Product
 
+# Create your views here.
 def show_main(request):
     products = Product.objects.all()
 
     context = {
-        'name': 'Pak Bepe', # Nama kamu
-        'class': 'PBP A', # Kelas PBP kamu
+        'name': 'Ayundha Sachi Mulia', # Nama kamu
+        'class': 'PBP F', # Kelas PBP kamu
         'products': products
     }
 
     return render(request, "main.html", context)
-
-# Create your views here.
 
 def create_product(request):
     form = ProductForm(request.POST or None)

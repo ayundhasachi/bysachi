@@ -7,7 +7,8 @@ Di sini, form.is_valid() adalah metode yang digunakan untuk memeriksa validitas 
 
 Form GET, sebaliknya, digunakan untuk mengambil data dari server dan menampilkannya dalam URL. Data yang dikirimkan melalui form GET akan terlihat pada URL dan berguna untuk permintaan yang hanya mengambil informasi dari server tanpa melakukan perubahan pada data yang ada. Misalnya, saat melakukan pencarian atau penyaringan berdasarkan kriteria tertentu.
 
-2. - XML (Xtensible Markup Language) adalah bahasa markah yang diciptakan untuk mengizinkan pengguna mendefinisikan struktur data secara bebas. XML menggunakan tanda markah seperti <tag> untuk membedakan elemen dan atribut data dalam dokumen. Data diorganisir dalam bentuk hirarki yang terdiri dari elemen, atribut, dan nilai. XML memisahkan data dari tampilan dan penting dalam pertukaran data antar platform. Kelebihan XML terletak pada fleksibilitasnya dalam mendefinisikan struktur data sesuai kebutuhan aplikasi.
+2. 
+- XML (Xtensible Markup Language) adalah bahasa markah yang diciptakan untuk mengizinkan pengguna mendefinisikan struktur data secara bebas. XML menggunakan tanda markah seperti <tag> untuk membedakan elemen dan atribut data dalam dokumen. Data diorganisir dalam bentuk hirarki yang terdiri dari elemen, atribut, dan nilai. XML memisahkan data dari tampilan dan penting dalam pertukaran data antar platform. Kelebihan XML terletak pada fleksibilitasnya dalam mendefinisikan struktur data sesuai kebutuhan aplikasi.
 
 - JSON (JavaScript Object Notation) adalah format pertukaran data ringan yang mudah dibaca oleh manusia dan mesin. JSON menggunakan pasangan kunci-nilai untuk merepresentasikan data dan mengorganisir data dalam bentuk objek dan array. Contohnya adalah { "Produk": "Telur", "kuantitas": 5 }. JSON banyak digunakan dalam komunikasi antar server dan klien, terutama dalam pengembangan web dan aplikasi. Kelebihan JSON adalah efisiensi dan kemudahan pengolahan data struktur sederhana hingga kompleks.
 
@@ -17,16 +18,17 @@ Perbedaan utama antara XML, JSON, dan HTML terletak pada struktur data dan tujua
 
 3. Keuntungan utama JSON meliputi pertukaran data yang cepat, kemampuan penerjemahan data yang mudah dimengerti oleh manusia, dan struktur data yang sederhana dan terstruktur. JSON memungkinkan pertukaran data yang cepat dengan struktur data yang kompak, mengurangi waktu pemrosesan data sehingga server dapat merespons dengan cepat. JSON juga mempermudah penerjemahan data ke bahasa manusia, memudahkan perbaikan atau penambahan kode. Selain itu, JSON membawa format data yang sederhana dan terstruktur, memudahkan pencarian dan modifikasi kode, serta memungkinkan pengguna untuk memasukkan teks dalam bahasa yang mereka pahami, memudahkan proses pengembangan.
 
-4. 1. Buat File forms.py
+4.
+A. Buat File forms.py
 Langkah pertama adalah menciptakan file forms.py. File ini akan berperan sebagai wadah input dari pengguna dan akan berisi variabel yang sesuai dengan model yang telah didefinisikan dalam file models.py.
 
-2. Modifikasi views.py
+B. Modifikasi views.py
 Selanjutnya, di dalam file views.py, kita akan melakukan beberapa modifikasi. Pertama, kita akan menambahkan fungsi baru yang dinamakan create_product. Tujuan dari fungsi ini adalah untuk membuat produk berdasarkan input yang diberikan oleh pengguna. Selain itu, kita juga akan mengubah bagian show_main yang terdapat dalam file views.py agar dapat menyimpan setiap produk yang telah ditambahkan.
 
-3. Buat File create_product.html
+C. Buat File create_product.html
 Langkah berikutnya adalah menciptakan file create_product.html. File ini akan digunakan sebagai tampilan untuk menginputkan data produk. Di dalam file ini, akan ada sebuah tombol yang akan mengarahkan pengguna ke halaman input produk. Setelah produk berhasil diinputkan, pengguna akan kembali ke layar utama dengan melihat daftar produk yang telah diinputkan sebelumnya.
 
-4. Routing
+D. Routing
 Tindakan selanjutnya adalah melakukan konfigurasi routing untuk fungsi-fungsi yang telah kita buat sebelumnya. Dalam file urls.py, kita akan menambahkan impor yang diperlukan dan juga menambahkan path-path baru. Hal ini dilakukan untuk memungkinkan akses ke fungsi-fungsi tersebut melalui URL. Berikut ini adalah contoh penambahan path-path tersebut dalam file urls.py:
 
 from django.urls import path

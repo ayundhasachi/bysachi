@@ -8,7 +8,20 @@
 
     <h5>Class:</h5>
     <p>{{class}}</p>
-<table>
+
+    <head>
+        <style>
+        table, th, td {
+          border: 1px solid white;
+          border-collapse: collapse;
+        }
+        th, td {
+          background-color: #96D4D4;
+        }
+        </style>
+        </head>
+        <body>
+            <table style="width:100%">
     <tr>
         <th>Name</th>
         <th>Price</th>
@@ -35,5 +48,10 @@
         Add New Product
     </button>
 </a>
-
+<a href="{% url 'main:logout' %}">
+    <button>
+        Logout
+    </button>
+</a>
+<h5>Sesi terakhir login: {{ last_login }}</h5>
 {% endblock content %}

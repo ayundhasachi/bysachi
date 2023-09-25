@@ -1,55 +1,45 @@
-1. Form POST berfungsi untuk mengirimkan data atau nilai ke server untuk proses lebih lanjut tanpa menampilkan data tersebut secara terbuka pada URL browser. Contoh penggunaannya adalah saat ingin menyimpan atau memperbarui data di server, seperti saat mengirimkan informasi dari formulir pendaftaran pengguna atau saat ingin memperbarui profil pengguna. Misalnya, dalam kondisi berikut:
-if form.is_valid() and request.method == "POST":
-    form.save()
-    return HttpResponseRedirect(reverse('main:show_main'))
+1. Django UserCreationForm adalah sebuah bentuk form bawaan yang disediakan oleh Django, sebuah framework web Python untuk memudahkan pembuatan dan pendaftaran pengguna dalam aplikasi web. Form ini digunakan untuk mengumpulkan data yang diperlukan untuk membuat akun pengguna baru, seperti username, password, dan data tambahan lainnya.
+KELEBIHAN: Mudah digunakan, validasi otomatis, integrasi yang baik karena adanya Django Authentication, mudahnya untuk di custom.
+KEKURANGAN: terbatasnya fungsiolitas (membutuhkan penyesuaian tambahan), keamanan yang kurang (hanya ada password, mungkin perlu penambahan), Tidak mendukung adanya autentikasi tersentralisasi.
 
-Di sini, form.is_valid() adalah metode yang digunakan untuk memeriksa validitas data yang diterima dari permintaan, sementara request.method == "POST" digunakan untuk memastikan bahwa tindakan ini hanya dijalankan jika permintaan merupakan tipe POST. Kemudian, form.save() digunakan untuk menyimpan data yang dikirimkan ke dalam database, diikuti dengan pernyataan return yang mengarahkan pengguna ke URL tertentu.
 
-Form GET, sebaliknya, digunakan untuk mengambil data dari server dan menampilkannya dalam URL. Data yang dikirimkan melalui form GET akan terlihat pada URL dan berguna untuk permintaan yang hanya mengambil informasi dari server tanpa melakukan perubahan pada data yang ada. Misalnya, saat melakukan pencarian atau penyaringan berdasarkan kriteria tertentu.
+2. Autentikasi dan otorisasi adalah dua konsep kunci dalam pengembangan web yang memiliki perbedaan yang signifikan dan penting dalam konteks Django, sebuah framework web Python.
 
-2. 
-- XML (Xtensible Markup Language) adalah bahasa markah yang diciptakan untuk mengizinkan pengguna mendefinisikan struktur data secara bebas. XML menggunakan tanda markah seperti <tag> untuk membedakan elemen dan atribut data dalam dokumen. Data diorganisir dalam bentuk hirarki yang terdiri dari elemen, atribut, dan nilai. XML memisahkan data dari tampilan dan penting dalam pertukaran data antar platform. Kelebihan XML terletak pada fleksibilitasnya dalam mendefinisikan struktur data sesuai kebutuhan aplikasi.
+a. Autentikasi:
+   - Autentikasi adalah proses memverifikasi identitas user yang mencoba mengakses aplikasi atau sumber daya tertentu. Ini digunakan untuk memastikan bahwa pengguna yang mengakses aplikasi adalah orang yang mereka klaim.
+   - Dalam Django, autentikasi adalah proses yang memungkinkan pengguna untuk login ke dalam sistem. Django memiliki sistem autentikasi bawaan yang mengelola informasi pengguna, seperti username dan password, dan menyediakan mekanisme untuk memverifikasi identitas pengguna.
 
-- JSON (JavaScript Object Notation) adalah format pertukaran data ringan yang mudah dibaca oleh manusia dan mesin. JSON menggunakan pasangan kunci-nilai untuk merepresentasikan data dan mengorganisir data dalam bentuk objek dan array. Contohnya adalah { "Produk": "Telur", "kuantitas": 5 }. JSON banyak digunakan dalam komunikasi antar server dan klien, terutama dalam pengembangan web dan aplikasi. Kelebihan JSON adalah efisiensi dan kemudahan pengolahan data struktur sederhana hingga kompleks.
+b. Otorisasi:
+   - Otorisasi adalah proses menentukan apa yang dapat dilakukan user setelah mereka berhasil diautentikasi. Ini mengontrol hak akses user terhadap berbagai sumber daya atau tindakan di dalam aplikasi.
+   - Dalam Django, otorisasi biasanya dilakukan melalui sistem perizinan. Contohnya, kita dapat menentukan apakah user dapat membaca, menulis, atau menghapus entri di database.
 
-- HTML (HyperText Markup Language) adalah bahasa markah yang digunakan untuk membuat halaman web. HTML mendefinisikan struktur dan tampilan konten pada halaman web menggunakan elemen-elemen seperti teks, gambar, tautan, dan lainnya. HTML menggunakan tag untuk mengorganisir konten dan memberikan instruksi kepada browser web tentang cara menampilkan halaman. HTML digunakan untuk membuat halaman web dan menampilkan konten di browser.
+hal ini penting karena autentikasi dan otorisasi adalah komponen penting dalam membangun aplikasi web yang aman dan sesuai dengan kebutuhan bisnis kita. Django menyediakan alat yang kuat untuk mengelola kedua aspek ini dengan mudah.
 
-Perbedaan utama antara XML, JSON, dan HTML terletak pada struktur data dan tujuan penggunaannya. XML digunakan untuk pertukaran data antar platform, JSON digunakan untuk pertukaran data ringan antar aplikasi dan server di web, sementara HTML digunakan untuk membuat halaman web dan menampilkan konten di browser.
 
-3. Keuntungan utama JSON meliputi pertukaran data yang cepat, kemampuan penerjemahan data yang mudah dimengerti oleh manusia, dan struktur data yang sederhana dan terstruktur. JSON memungkinkan pertukaran data yang cepat dengan struktur data yang kompak, mengurangi waktu pemrosesan data sehingga server dapat merespons dengan cepat. JSON juga mempermudah penerjemahan data ke bahasa manusia, memudahkan perbaikan atau penambahan kode. Selain itu, JSON membawa format data yang sederhana dan terstruktur, memudahkan pencarian dan modifikasi kode, serta memungkinkan pengguna untuk memasukkan teks dalam bahasa yang mereka pahami, memudahkan proses pengembangan.
+3. Cookies adalah potongan data yang disimpan di perangkat pengguna saat berinteraksi dengan situs web atau aplikasi web tertentu. Cookies digunakan untuk menyimpan informasi pada perangkat pengguna yang dapat diakses oleh server web ketika pengguna mengunjungi situs tersebut lagi. Ini memungkinkan aplikasi web untuk menyimpan informasi tertentu tentang pengguna dan mengingat preferensi atau status mereka.
 
-4.
-A. Buat File forms.py
-Langkah pertama adalah menciptakan file forms.py. File ini akan berperan sebagai wadah input dari pengguna dan akan berisi variabel yang sesuai dengan model yang telah didefinisikan dalam file models.py.
+Django, sebagai framework web Python, menggunakan cookies untuk mengelola data sesi pengguna. Seperti menyimpan data login user, menyimpan data sesi, dan mengamankan cookie.Ini memungkinkan Django untuk menyimpan informasi sesi pengguna di sisi klien dengan aman dan mengaksesnya kembali ketika pengguna melakukan permintaan berikutnya.
 
-B. Modifikasi views.py
-Selanjutnya, di dalam file views.py, kita akan melakukan beberapa modifikasi. Pertama, kita akan menambahkan fungsi baru yang dinamakan create_product. Tujuan dari fungsi ini adalah untuk membuat produk berdasarkan input yang diberikan oleh pengguna. Selain itu, kita juga akan mengubah bagian show_main yang terdapat dalam file views.py agar dapat menyimpan setiap produk yang telah ditambahkan.
 
-C. Buat File create_product.html
-Langkah berikutnya adalah menciptakan file create_product.html. File ini akan digunakan sebagai tampilan untuk menginputkan data produk. Di dalam file ini, akan ada sebuah tombol yang akan mengarahkan pengguna ke halaman input produk. Setelah produk berhasil diinputkan, pengguna akan kembali ke layar utama dengan melihat daftar produk yang telah diinputkan sebelumnya.
+4. Penggunaan cookies dalam pengembangan web memiliki manfaat besar, tetapi juga potensi risiko yang perlu diperhatikan. Meskipun tidak ada yang benar-benar "aman secara default" dalam pengembangan web, ada beberapa risiko potensial yang terkait dengan penggunaan cookies adalah kebocoran data, serangan Cross-site Scripting, Serangan Man-In-The-Middle. Cara mewaspadai dan mengurangi risiko adalah: melakukan enkripsi data, securing cookies, monitoring dan memantau penggunaan cookies, mempertimbangkan alternatif (seperti web storage.
 
-D. Routing
-Tindakan selanjutnya adalah melakukan konfigurasi routing untuk fungsi-fungsi yang telah kita buat sebelumnya. Dalam file urls.py, kita akan menambahkan impor yang diperlukan dan juga menambahkan path-path baru. Hal ini dilakukan untuk memungkinkan akses ke fungsi-fungsi tersebut melalui URL. Berikut ini adalah contoh penambahan path-path tersebut dalam file urls.py:
-
-from django.urls import path
-from main.views import show_main
-from main.views import show_main, create_product
-from main.views import show_main, create_product, show_xml 
-from main.views import show_main, create_product, show_xml, show_json
-from main.views import show_main, create_product, show_xml, show_json, show_xml_by_id, show_json_by_id 
-
-app_name = 'main'
-
-urlpatterns = [
-    path('', show_main, name='show_main'),
-    path('create-product', create_product, name='create_product'),
-    path('xml/', show_xml, name='show_xml'),
-    path('json/', show_json, name='show_json'),
-    path('xml/<int:id>/', show_xml_by_id, name='show_xml_by_id'),
-    path('json/<int:id>/', show_json_by_id, name='show_json_by_id'),
-]
+5. - Mengaktifkan lingkungan virtual
+- Mengimpor modul yang diperlukan, salah satunya adalah UserCreationForm
+- Membuat sebuah fungsi yang menerima permintaan dari browser ke server, yang dinamakan sebagai fungsi "register"
+- Membuat sebuah berkas HTML yang akan digunakan sebagai tampilan formulir pendaftaran yang telah dibuat
+- Mengimpor fungsi "register" ke dalam berkas urls.py dan menambahkan jalur URL ke dalam urlpatterns
+- Mengikuti langkah yang sama untuk menciptakan formulir masuk. Kali ini, modul yang diimpor adalah "authenticate" dan "login"
+- Fungsi yang dibuat dinamakan "login_user"
+- Mengikuti langkah yang serupa untuk membuat fungsi logout, dengan modul yang diimpor adalah "logout"
+- Perbedaannya terletak dalam pembuatan berkas HTML; dalam kasus logout, hanya diperlukan sebuah tag hyperlink di dalam berkas main.html
+- Untuk otorisasi, menggunakan modul "login_required" untuk membatasi akses hanya untuk pengguna yang telah masuk. Kode ini ditambahkan pada views.py seperti yang berikut:
+@login_required(login_url='/login')
+def show_main(request):
+- Selanjutnya, membuat dua akun untuk menghubungkan model Item dengan Product, menambahkan impor User ke dalam models.py, dan menambahkan kode untuk menghubungkan satu Item dengan User
+- Kemudian, melakukan beberapa perubahan pada fungsi create_product di views.py agar Django dapat mengenali bahwa objek yang sedang dibuat dimiliki oleh pengguna tersebut.
+- Terdapat perubahan juga pada fungsi show_main agar hanya menampilkan produk yang dimiliki oleh pengguna tertentu.
 
 
 
-SS POSTMAN: https://drive.google.com/drive/folders/1NDEC6ozzJ7OisQ4GGDs-9njubrl9bYg_
- 
+
+

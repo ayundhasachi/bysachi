@@ -1,0 +1,53 @@
+/* Styling for the product form container */
+.product-form-container {
+    background-color: #E9B824;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    margin: 0 auto; /* Center the form horizontally */
+    text-align: center;
+}
+
+/* Styling for the product form title */
+.product-form-container h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Styling for the product form */
+.product-form {
+    width: 100%;
+}
+
+/* Styling for the product form table cells */
+.product-form table td {
+    padding: 10px 0;
+}
+
+/* Styling for the product form input fields */
+.product-form input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Styling for the Add Product button */
+.add-product-btn {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+/* Styling for the Add Product button on hover */
+.add-product-btn:hover {
+    background-color: #0056b3;
+}

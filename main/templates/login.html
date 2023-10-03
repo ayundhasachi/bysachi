@@ -1,45 +1,116 @@
-{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
 
-{% block meta %}
-    <title>Login</title>
-{% endblock meta %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGIN</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #6C63FF; /* Warna latar belakang ungu */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
 
-{% block content %}
+        .login {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
 
-<div class = "login">
+        .login h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #6C63FF; /* Warna teks ungu */
+        }
 
-    <h1>Login</h1>
+        .login table {
+            width: 100%;
+        }
 
-    <form method="POST" action="">
-        {% csrf_token %}
-        <table>
-            <tr>
-                <td>Username: </td>
-                <td><input type="text" name="username" placeholder="Username" class="form-control"></td>
-            </tr>
-                    
-            <tr>
-                <td>Password: </td>
-                <td><input type="password" name="password" placeholder="Password" class="form-control"></td>
-            </tr>
+        .login table td {
+            padding: 10px 0;
+        }
 
-            <tr>
-                <td></td>
-                <td><input class="btn login_btn" type="submit" value="Login"></td>
-            </tr>
-        </table>
-    </form>
+        .login input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
 
-    {% if messages %}
+        .login .login_btn {
+            padding: 10px 20px;
+            border: none;
+            background-color: #6C63FF; /* Warna tombol ungu */
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+
+        .login .login_btn:hover {
+            background-color: #5B54E9; /* Warna tombol saat dihover */
+        }
+
+        .login .register_link {
+            margin-top: 10px;
+        }
+
+        .login .register_link a {
+            text-decoration: none;
+            color: #6C63FF; /* Warna teks ungu */
+            font-weight: bold;
+        }
+
+        .login .register_link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login">
+        <h1>Login</h1>
+        <form method="POST" action="">
+            {% csrf_token %}
+            <table>
+                <tr>
+                    <td>Username: </td>
+                    <td><input type="text" name="username" placeholder="Username"></td>
+                </tr>
+                <tr>
+                    <td>Password: </td>
+                    <td><input type="password" name="password" placeholder="Password"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input class="btn login_btn" type="submit" value="Login"></td>
+                </tr>
+            </table>
+        </form>
+
+        {% if messages %}
         <ul>
             {% for message in messages %}
-                <li>{{ message }}</li>
+            <li>{{ message }}</li>
             {% endfor %}
         </ul>
-    {% endif %}     
-        
-    Don't have an account yet? <a href="{% url 'main:register' %}">Register Now</a>
+        {% endif %}
 
-</div>
+        <div class="register_link">
+            Don't have an account yet? <a href="{% url 'main:register' %}" style="color: #6C63FF;">Register Now</a>
+        </div>
+    </div>
+</body>
 
-{% endblock content %}
+</html>

@@ -41,3 +41,12 @@ b. jQuery:
 KESIMPULANNYA:  jika hanya membutuhkan fitur AJAX dalam proyek modern dan ingin menghindari beban yang tidak perlu, Fetch API adalah pilihan yang baik. Namun, jika proyeknya lebih besar dan Anda memerlukan fungsionalitas tambahan yang ditawarkan oleh jQuery, maka jQuery bisa menjadi pilihan yang baik.
 
 5.**Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).**
+Awalnya, saya memulai dengan menambahkan elemen <div id="get_card" class="cardss" dengan pengaturan tampilan seperti "display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); grid-gap: 20px; margin: 40px; justify-content: center; justify-items: center; padding-bottom: 20px;" untuk membuat kartu-kartu di halaman utama. Selanjutnya, saya melakukan perubahan di model dengan menambahkan field "image_url" dengan tipe data models.TextField(). Kemudian, saya menjalankan perintah migrations untuk mengaplikasikan perubahan tersebut ke basis data.
+
+Selanjutnya, saya membuat dua fungsi di views.py, yaitu "get_product_json" dan "add_product_ajax", yang didekorasi dengan @csrf_exempt, serta mengimpor modul yang diperlukan dan menentukan path-nya. Saya menggunakan teknologi fetch API untuk mengambil data JSON dan mengelolanya dengan fungsi .then().
+
+Kemudian, saya menambahkan beberapa fungsi di file script di halaman utama (main.html), termasuk "refreshProducts", "refreshCards", dan "addProduct". Fungsi-fungsi ini digunakan untuk mengelola konten halaman secara dinamis dan menambahkan atribut "onclick" untuk berbagai elemen.
+
+Selanjutnya, saya membuat fungsi "delete_item_aja" di views.py dengan parameter request dan id, serta menambahkan impor dan path yang diperlukan. Fungsi ini digunakan untuk menghapus item.
+
+Terakhir, saya memperindah tampilan halaman utama (main.html) dengan menambahkan gambar latar belakang (gif) dan melakukan berbagai perubahan gaya lainnya.
